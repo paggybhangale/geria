@@ -9,7 +9,7 @@
 <body>
 
 
-
+<h3>This is the generic exception handling page</h3>
 
 
 <p>genericExceptionHandler</p>
