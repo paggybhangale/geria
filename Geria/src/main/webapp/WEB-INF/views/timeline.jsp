@@ -180,7 +180,7 @@
               <div class="col-md-9">
                 <ul class="list-inline profile-menu">
                   <li><a href="timeline.html" class="active">Timeline</a></li>
-                  <li><a href="timeline-about.html">About</a></li>
+                  <li><a href="go_to_timelineAbout">About</a></li>
                   <li><a href="timeline-album.html">Album</a></li>
                   <li><a href="timeline-friends.html">Friends</a></li>
                       ${logoutbutton }
