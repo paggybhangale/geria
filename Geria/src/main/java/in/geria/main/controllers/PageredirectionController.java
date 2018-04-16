@@ -38,6 +38,13 @@ public class PageredirectionController {
 	}
 	
 	
+	/*ACCOUNT */
+	@RequestMapping(value="/go_to_timelineAbout")
+	private ModelAndView go_to_timelineAbout()
+	{
+		ModelAndView userPanel=new ModelAndView("FF/timeline-album");
+		return userPanel;
+	}
 	
 	
 	
