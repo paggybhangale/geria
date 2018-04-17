@@ -5,6 +5,8 @@ import java.io.IOException;
 import javax.persistence.LockTimeoutException;
 import javax.validation.Valid;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Logger;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,14 +19,25 @@ import in.geria.main.Entities.UserEntity;
 @RestController
 public class RegistrationUserController {
 
-	
+	Logger logger=Logger.getLogger(RegistrationUserController.class.getName());
 	@ModelAttribute
 	public void setDataToLandingPage()
 	{
+		BasicConfigurator.configure();
+		logger.info("in the setDataToLandingPage");
 		ModelAndView LandingPage =new ModelAndView("LandingPage");
 		LandingPage.addObject("Title", "GOOD MORNING");
 		System.out.println("Title Set To GOOD MORNING");
-		
+		if(logger.isDebugEnabled())
+		{
+		logger.debug("ModelAndView Landingpage Object Initialize successfully");
+				LandingPage.addObject("Title", "GOOD MORNING");
+		logger.debug("Title object successfully to object");
+				System.out.println("Title Set To GOOD MORNING");
+		logger.warn("this is warning");
+	
+		}
+		logger.info("out the setDataToLandingPage");
 	}
 	
 	/**--------------------------------------------------------------------------
