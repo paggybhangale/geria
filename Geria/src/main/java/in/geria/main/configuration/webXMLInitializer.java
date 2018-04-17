@@ -1,4 +1,4 @@
-package in.geria.main.configuration;
+ package in.geria.main.configuration;
 
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
@@ -9,22 +9,30 @@ public class webXMLInitializer extends AbstractAnnotationConfigDispatcherServlet
 {
 
 	Logger logger =Logger.getLogger(webXMLInitializer.class);
+
+
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		
-		logger.info("getRootConfigClasses");
-		return new Class[] {webMvcIntializer.class , securityConfiguration.class};
+
+	logger.info("getRootConfigClasses");
+		System.out.println("getRootConfigClasses");
+		//logger.error("Error found in");
+		logger.error("This is an error message", new Exception("TestingPaggy"));
+		return new Class[] { securityConfiguration.class };
+
+
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		
-		return null;
+		System.out.println("getServletConfigClasses");
+		return new Class[] { webMvcIntializer.class };
+
 	}
 
 	@Override
 	protected String[] getServletMappings() {
-		
+		System.out.println("getServletMappings");
 		return new String[] {"/"};
 	}
 

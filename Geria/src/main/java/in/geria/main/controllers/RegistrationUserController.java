@@ -19,15 +19,17 @@ import in.geria.main.Entities.UserEntity;
 @RestController
 public class RegistrationUserController {
 
+
+	
 	Logger logger=Logger.getLogger(RegistrationUserController.class.getName());
+	
 	@ModelAttribute
 	public void setDataToLandingPage()
 	{
 		BasicConfigurator.configure();
 		logger.info("in the setDataToLandingPage");
 		ModelAndView LandingPage =new ModelAndView("LandingPage");
-		LandingPage.addObject("Title", "GOOD MORNING");
-		System.out.println("Title Set To GOOD MORNING");
+
 		if(logger.isDebugEnabled())
 		{
 		logger.debug("ModelAndView Landingpage Object Initialize successfully");
@@ -39,6 +41,14 @@ public class RegistrationUserController {
 		}
 		logger.info("out the setDataToLandingPage");
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/**--------------------------------------------------------------------------
 	 * @throws IOException */
