@@ -49,4 +49,23 @@ public class PageredirectionController {
 	
 	
 	
+	
+	
+	public int getSquare(int aa)
+	{
+		return aa*aa;
+	}
+	
+	
+	public int getCube(int aa)
+	{
+		return aa*aa*aa;
+	}
+	
+	
+	
+	
+	
+	
+	
 }
