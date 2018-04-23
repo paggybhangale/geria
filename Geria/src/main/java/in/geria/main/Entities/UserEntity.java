@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 public class UserEntity {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="Roll_id")
 	private Integer Roll_id;
 	

@@ -12,7 +12,7 @@ import javax.validation.constraints.Size;
 public class LoginEntity {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="login_id")
 	private int login_id;
 	

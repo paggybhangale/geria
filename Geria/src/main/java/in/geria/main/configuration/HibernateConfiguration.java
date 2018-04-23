@@ -41,7 +41,7 @@ public class HibernateConfiguration {
     	System.out.println(" ---------------------------------------------------------------------------");
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.websystique.springmvc.model" });
+        sessionFactory.setPackagesToScan(new String[] { "in.geria.main.Entities" });
         sessionFactory.setHibernateProperties(hibernateProperties());
         logger.info("exiting into sessionFactory method");
         return sessionFactory;
@@ -68,7 +68,7 @@ public class HibernateConfiguration {
         properties.put("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
         properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
         properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
-        properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
+      //  properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
         
         logger.info("exiting into hibernateProperties method");
         return properties;        

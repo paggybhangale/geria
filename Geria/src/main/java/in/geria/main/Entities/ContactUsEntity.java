@@ -19,7 +19,7 @@ public class ContactUsEntity {
 	
 	@Id
 	@Column(name="Contact_id")
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int Contact_id;
 	
 	
