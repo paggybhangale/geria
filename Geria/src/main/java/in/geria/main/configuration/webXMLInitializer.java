@@ -18,7 +18,7 @@ public class webXMLInitializer extends AbstractAnnotationConfigDispatcherServlet
 		System.out.println("getRootConfigClasses");
 		//logger.error("Error found in");
 		logger.error("This is an error message", new Exception("TestingPaggy"));
-		return new Class[] { securityConfiguration.class };
+		return new Class[] { securityConfiguration.class , HibernateConfiguration.class };
 
 
 	}

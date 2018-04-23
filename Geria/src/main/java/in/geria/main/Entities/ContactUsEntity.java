@@ -1,27 +1,46 @@
 package in.geria.main.Entities;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+
+@Entity
+@Table(name="ContactUsEntity")
 public class ContactUsEntity {
 
+	
+	@Id
+	@Column(name="Contact_id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int Contact_id;
+	
+	
 	@NotEmpty
 	@NotNull
 	@Size(max=10,message="Name should be 10 char long only")
+	@Column(name="contactus_name")
 	private String contactus_name;
 	
 	
 	@NotEmpty
 	@NotNull
 	@Email(message="Please enter Valid Email Address")
+	@Column(name="contactus_email")
 	private String contactus_email;
 	
 
 	@NotEmpty
 	@NotNull
 	@Size(max=20,message="Name should be 15 char long only")
+	@Column(name="contactus_comment")
 	private String contactus_comment;
 
 
