@@ -17,6 +17,8 @@ import javax.validation.constraints.Size;
 public class ContactUsEntity {
 
 	
+	
+
 	@Id
 	@Column(name="Contact_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -44,6 +46,35 @@ public class ContactUsEntity {
 	private String contactus_comment;
 
 
+	
+	
+	
+	
+	/**
+	 * @param contact_id
+	 * @param contactus_name
+	 * @param contactus_email
+	 * @param contactus_comment
+	 */
+	public ContactUsEntity(int contact_id,
+			@NotEmpty @NotNull @Size(max = 10, message = "Name should be 10 char long only") String contactus_name,
+			@NotEmpty @NotNull @Email(message = "Please enter Valid Email Address") String contactus_email,
+			@NotEmpty @NotNull @Size(max = 20, message = "Name should be 15 char long only") String contactus_comment) {
+		super();
+		Contact_id = contact_id;
+		this.contactus_name = contactus_name;
+		this.contactus_email = contactus_email;
+		this.contactus_comment = contactus_comment;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 	public String getContactus_name() {
 		return contactus_name;
 	}

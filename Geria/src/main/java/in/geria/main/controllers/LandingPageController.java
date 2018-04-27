@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import in.geria.main.Entities.ContactUsEntity;
+import in.geria.main.service.ContactUsServiceInteface;
 import in.geria.main.service.LoginServiceInterface;
 
 @RestController
@@ -20,7 +21,7 @@ public class LandingPageController {
 	Logger logger=Logger.getLogger(LandingPageController.class);
 	
 	@Autowired
-	LoginServiceInterface loginservice;
+	ContactUsServiceInteface contactusservice;
 	
 	
 	
@@ -45,7 +46,7 @@ public class LandingPageController {
 			    mv=new ModelAndView("LandingPage");
 			    
 			    //here we have to write a savemethod
-			    loginservice.saveContactUsInfoToDb(contactUsEntity);
+			    contactusservice.saveContactUsInfoToDb(contactUsEntity);
 			   
 				mv.addObject("alert","alert('Thanks for contacting us!!')");
 		}

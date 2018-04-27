@@ -2,13 +2,16 @@ package in.geria.main.daoImpl;
 
 
 
+
+import java.util.List;
+
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import in.geria.main.Entities.ContactUsEntity;
+import in.geria.main.Entities.LoginEntity;
+import in.geria.main.Entities.UserEntity;
 import in.geria.main.dao.LoginDaoInterface;
 
 @Repository
@@ -22,39 +25,32 @@ public class LoginDaoImpl implements LoginDaoInterface
 	Logger logger=Logger.getLogger(LoginDaoImpl.class);
 	
 	
-	
-	 /*Parag Bhangale 23-04-2018 3.51PM
-	 * 
-	 * 
-	 * this method saves contact us info into database
-	 * 
-	 **/
+
+			 /*Parag Bhangale 23-04-2018 3.51PM
+				 * 
+				 * 
+				 * this method retrives loginInfo info form database
+				 * 
+				 **/
+			/* (non-Javadoc)
+			 * @see in.geria.main.dao.LoginDaoInterface#fetchLoginCredentials(in.geria.main.Entities.LoginEntity)
+			 */
+
 	@Override
-	public boolean saveContactUsInfoToDb(ContactUsEntity contactUsEntity) {
+	public List<UserEntity> fetchLoginCredentials( ) 
+	{
 		
-		logger.info("Entering into saveContactUsInfoToDb method");
+		logger.info("entering fetchLoginCredentials method");
+
+  
+		List<UserEntity> list=sessionfactory.getCurrentSession().createQuery("from UserEntity").list();
+		System.out.println(list);
+	
+
+		logger.info("exiting fetchLoginCredentials method");
+		return list;
 		
-		System.out.println("Entering saveContactUsInfoToDb Method");
-			try
-			{
-				sessionfactory.getCurrentSession().saveOrUpdate(contactUsEntity);
-			}
-			catch (NullPointerException e) {
-				logger.error(e);
-				e.printStackTrace();
-			}
-			catch (Exception e) {
-				logger.error(e);
-				e.printStackTrace();
-			}
-			finally 
-			{
-				
-			}
-			
-		logger.info("Exiting into saveContactUsInfoToDb method");
 		
-		return false;
 	}
 
 	

@@ -1,6 +1,8 @@
 package in.geria.main.controllers;
 
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -20,11 +23,17 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import in.geria.main.Entities.LoginEntity;
+import in.geria.main.Entities.UserEntity;
+import in.geria.main.service.LoginServiceInterface;
 
 @RestController
 @SessionAttributes("users")
 public class LoginController {
 
+	
+	@Autowired
+	LoginServiceInterface loginservice;
+	
 	
 	@RequestMapping("/login")
 	public ModelAndView getLoginPageView()
@@ -51,12 +60,19 @@ public class LoginController {
 			}
 		else
 			{		
+			   
+			    List<UserEntity> list=loginservice.fetchLoginCredentials();
 				loginOBJ=new ModelAndView("timeline");
 				Map<String, Object> modelMap=new HashMap<String,Object>();
 				modelMap.put("UserNameofLoginPersion", entity.getEmauil_us());
 				loginOBJ.addAllObjects(modelMap);
 				request.getSession().setAttribute("loggedInUser", entity.getEmauil_us());
 				request.getSession().setAttribute("logoutbutton",  "<li><a href='logout'>logout</a></li>");
+				
+				
+				
+			
+				
 				
 			}
 		

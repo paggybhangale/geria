@@ -3,7 +3,11 @@
  */
 package in.geria.main.service;
 
+import java.util.List;
+
 import in.geria.main.Entities.ContactUsEntity;
+import in.geria.main.Entities.LoginEntity;
+import in.geria.main.Entities.UserEntity;
 
 /**
  * @author Parag
@@ -11,6 +15,6 @@ import in.geria.main.Entities.ContactUsEntity;
  */
 public interface LoginServiceInterface {
 
-	public boolean saveContactUsInfoToDb(ContactUsEntity contactUsEntity);
-
+	public List<UserEntity> fetchLoginCredentials(  );
+	
 }
